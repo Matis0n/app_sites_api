@@ -10,6 +10,14 @@ let initialState = {
 };
 
 type InitialStateType = typeof initialState
+type ActionsTypes = CategoriesActionCreatorType //CategoriesActionCreatorType | остальные ActionCreator типы |..|
+
+export type CategoriesActionCreatorType = {
+    type: typeof SET_CATEGORIES
+    payload: ICategories[]
+}
+export type  AppDispatch = ThunkDispatch<RootState, unknown, ActionsTypes>
+
 
 const projectsReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
@@ -23,18 +31,12 @@ const projectsReducer = (state = initialState, action: ActionsTypes): InitialSta
     }
 }
 
-type ActionsTypes = CategoriesActionCreatorType //CategoriesActionCreatorType | остальные ActionCreator типы |..|
-
-export type CategoriesActionCreatorType = {
-    type: typeof SET_CATEGORIES
-    payload: ICategories[]
-}
-
 export const setCategoriesActionCreator = (category: ICategories[]): CategoriesActionCreatorType =>
     ({ type: SET_CATEGORIES, payload: category })
 
+
 export const getProjectsCategoriesData = () =>
-    async (dispatch: ThunkDispatch<RootState, unknown, ActionsTypes>) => {
+    async (dispatch:AppDispatch) => {
         try {
             const response = await testAPI.getProjectsCategories()
             const category = response.data.items
