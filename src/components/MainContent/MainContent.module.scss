@@ -1,0 +1,15 @@
+@import './../../assets/colors/colors';
+.content {
+  width: 100%;
+
+  &__item {
+    margin-top: 130px;
+
+    &--text {
+      color: $color-white;
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 58px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "./../../assets/colors/colors";
+
+.header {
+  width: 100%;
+
+  &__item {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__logo {
+    padding: 8px 0;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    &__item {
+      justify-content: space-between;
+    }
+
+    &__burger {
+      cursor: pointer;
+      display: block;
+    }
+  }
+}

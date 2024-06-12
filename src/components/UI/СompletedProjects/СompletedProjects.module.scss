@@ -1,0 +1,133 @@
+@import './../../../assets/colors/colors';
+
+.category {
+  width: 100%;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 53px;
+    gap: 30px 70px;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__gradient {
+    display: none;
+  }
+
+  &__mobile {
+    display: none;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 320px;
+    border-radius: 12px;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $color-black-rgb;
+    border-radius: 5px;
+    position: absolute;
+    top: 17px;
+    right: 21px;
+    width: 30%;
+    height: 35%;
+
+    &--text {
+      background: none;
+      font-weight: 600;
+      font-size: 24px;
+      color: $color-white;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .category {
+      &__icon {
+        display: none;
+      }
+
+      &__gradient {
+        display: block;
+        border-radius: 12px;
+        background: linear-gradient(0.00deg, rgb(9, 11, 33) 0%, rgba(49, 51, 65, 0) 70.079%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &__logo {
+        object-fit: cover;
+        display: block;
+
+      }
+
+      &__mobile {
+        display: block;
+
+        &--text {
+          position: absolute;
+          top: 220px;
+          left: 21px;
+          padding-top: 10px;
+          display: block;
+          color: $color-white;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 18px;
+        }
+
+        &--icon {
+          position: absolute;
+          top: 160px;
+          left: 21px;
+        }
+      }
+
+      &__block {
+        justify-content: left;
+        background: none;
+        top: 150px;
+        left: 21px;
+
+        &--text {
+          background: none;
+          font-weight: 600;
+          font-size: 24px;
+          color: $color-white;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 490px) and (max-width: 767px) {
+    &__logo {
+      height: 420px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    &__block {
+      &--text {
+        font-size: 20px;
+      }
+    }
+  }
+}
