@@ -20,7 +20,7 @@ export interface IProjects extends itemsProjectsType{
 
 export interface IUsersForm {
     name: string | null
-    phone: number | null
+    phone: string | null
     email: string | null
     message: string | null
 }

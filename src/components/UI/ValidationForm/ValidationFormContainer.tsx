@@ -1,18 +1,19 @@
-import {useState} from 'react';
+import {FormEvent, useState} from 'react';
 import {useDispatch} from "react-redux";
 import ValidationForm from "./ValidationForm.tsx";
-import {setFormData} from "../../../redux/reducer/forms-reducer.ts";
+import {AppDispatch, setFormData} from "../../../redux/reducer/forms-reducer.ts";
+
 
 const ValidationFormContainer = () => {
-    const [newName, setNewName] = useState('')
-    const [newPhone, setNewPhone] = useState('')
-    const [newEmail, setNewEmail] = useState('')
-    const [newMessage, setNewMessage] = useState('')
-    const [consent, setConsent] = useState(false)
+    const [newName, setNewName] = useState<string>('')
+    const [newPhone, setNewPhone] = useState<string>('')
+    const [newEmail, setNewEmail] = useState<string>('')
+    const [newMessage, setNewMessage] = useState<string>('')
+    const [consent, setConsent] = useState<boolean>(false)
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event:FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (!consent) {
             alert('Пожалуйста, подтвердите согласие на обработку персональных данных')

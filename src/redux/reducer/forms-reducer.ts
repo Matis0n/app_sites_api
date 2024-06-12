@@ -8,7 +8,7 @@ const SET_FORM_DATA = 'SET-FORM-DATA';
 
 let initialState = {
     name: null as string | null,
-    phone: null as number | null,
+    phone: null as string | null,
     email: null as string | null,
     message: null as string | null,
 };
@@ -36,11 +36,11 @@ const formReducer = (state = initialState, action: ActionsTypes): InitialStateTy
 };
 
 
-export const setFormDataActionCreator = (name: string, phone: number, email: string, message: string): FormDataActionCreatorType => ({
+export const setFormDataActionCreator = (name: string, phone: string, email: string, message: string): FormDataActionCreatorType => ({
     type: SET_FORM_DATA,
     payload: {name, phone, email, message},
 });
-export const setFormData = (name: string, phone: number, email: string, message: string) =>
+export const setFormData = (name: string, phone: string, email: string, message: string) =>
     async (dispatch: AppDispatch) => {
         try {
             await testAPI.submitData(name, phone, email, message);

@@ -12,7 +12,7 @@ export const testAPI = {
     getProjectsCategories(): Promise<AxiosResponse<ICategories>> {
         return instance.get<ICategories>(`project-categories`)
     },
-    submitData(name: string, phone: number, email: string, message: string): Promise<AxiosResponse<IUsersForm>> {
+    submitData(name: string, phone: string, email: string, message: string): Promise<AxiosResponse<IUsersForm>> {
         return instance.post<IUsersForm>(`feedbacks`, {name, phone, email, message})
     }
 }

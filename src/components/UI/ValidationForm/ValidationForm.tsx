@@ -1,8 +1,22 @@
-import React from 'react';
+import {ChangeEvent, FC, FormEvent} from 'react';
 import styles from './ValidationForm.module.scss';
 import circleIcon from './../../../assets/img/circle.svg';
 
-const ValidationForm = (props) => {
+interface IProps {
+    newName: string
+    newPhone: string
+    newEmail: string
+    newMessage: string
+    consent: boolean
+    setNewName: (name:string) => void
+    setNewPhone: (phone:string) => void
+    setNewEmail: (email:string) => void
+    setNewMessage: (message:string) => void
+    setConsent: (consent:boolean) => void
+    handleSubmit: (event:FormEvent<HTMLFormElement>) => void
+}
+
+const ValidationForm: FC<IProps> = (props) => {
     const {
         newName,
         newPhone,
@@ -17,23 +31,23 @@ const ValidationForm = (props) => {
         handleSubmit
     } = props
 
-    function onSetNewName(e) {
+    function onSetNewName(e:ChangeEvent<HTMLInputElement>) {
         setNewName(e.target.value);
     }
 
-    function onSetNewEmail(e) {
+    function onSetNewEmail(e:ChangeEvent<HTMLInputElement>) {
         setNewEmail(e.target.value);
     }
 
-    function onSetNewPhone(e) {
+    function onSetNewPhone(e:ChangeEvent<HTMLInputElement>) {
         setNewPhone(e.target.value);
     }
 
-    function onSetNewMessage(e) {
+    function onSetNewMessage(e:ChangeEvent<HTMLInputElement>) {
         setNewMessage(e.target.value);
     }
 
-    function onCheckConsent(e) {
+    function onCheckConsent(e:ChangeEvent<HTMLInputElement>) {
         setConsent(e.target.checked);
     }
 
