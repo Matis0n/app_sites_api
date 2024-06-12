@@ -14,7 +14,7 @@ type itemsProjectsType = {
     image: string
 }
 
-export interface IProjects {
+export interface IProjects extends itemsProjectsType{
     items: itemsProjectsType[]
 }
 

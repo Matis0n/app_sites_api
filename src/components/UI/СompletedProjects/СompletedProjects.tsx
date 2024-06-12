@@ -2,15 +2,21 @@ import styles from "./СompletedProjects.module.scss"
 import TisksIcon from "../../../assets/IconComponent/TisksIcon";
 import TisksIconMobile from "../../../assets/IconComponent/TisksIconMobile";
 import {Row, Col} from "reactstrap";
+import {IProjects} from "../../../types/type.ts";
+import {FC} from "react";
 
-const CompletedProjects = (props) => {
+interface IProps {
+    projects: IProjects[]
+}
+
+const CompletedProjects: FC<IProps> = ({projects}) => {
     return (
         <Row>
             <Col lg="12" md="12" sm="12">
                 <div className={styles.category}>
                     <div className={styles.category__container}>
                         {
-                            props.projects.map(project => (
+                            projects.map(project => (
                                 <div key={project.id} className={styles.category__item}>
                                     <div className={styles.category__gradient}></div>
                                     <img className={styles.category__logo} src={project.image} alt='foto'/>
