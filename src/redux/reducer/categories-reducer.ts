@@ -37,6 +37,7 @@ export const setCategoriesActionCreator = (category: ICategories[]): CategoriesA
 
 export const getProjectsCategoriesData = () =>
     async (dispatch:AppDispatch) => {
+
         try {
             const response = await testAPI.getProjectsCategories()
             const category = response.data.items
