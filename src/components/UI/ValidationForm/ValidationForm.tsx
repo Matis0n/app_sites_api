@@ -1,58 +1,24 @@
-import {ChangeEvent, FC, FormEvent} from 'react';
 import styles from './ValidationForm.module.scss';
 import circleIcon from './../../../assets/img/circle.svg';
+import {SubmitHandler, useForm} from "react-hook-form";
+import {FC} from "react";
+import {IMyForm} from "../../../types/type.ts";
+
 
 interface IProps {
-    newName: string
-    newPhone: string
-    newEmail: string
-    newMessage: string
-    consent: boolean
-    setNewName: (name:string) => void
-    setNewPhone: (phone:string) => void
-    setNewEmail: (email:string) => void
-    setNewMessage: (message:string) => void
-    setConsent: (consent:boolean) => void
-    handleSubmit: (event:FormEvent<HTMLFormElement>) => void
+    handleSubmit: SubmitHandler<IMyForm>
 }
 
-const ValidationForm: FC<IProps> = (props) => {
-    const {
-        newName,
-        newPhone,
-        newEmail,
-        newMessage,
-        consent,
-        setNewName,
-        setNewPhone,
-        setNewEmail,
-        setNewMessage,
-        setConsent,
-        handleSubmit
-    } = props
+const ValidationForm: FC<IProps> = ({handleSubmit}) => {
 
-    function onSetNewName(e:ChangeEvent<HTMLInputElement>) {
-        setNewName(e.target.value);
-    }
-
-    function onSetNewEmail(e:ChangeEvent<HTMLInputElement>) {
-        setNewEmail(e.target.value);
-    }
-
-    function onSetNewPhone(e:ChangeEvent<HTMLInputElement>) {
-        setNewPhone(e.target.value);
-    }
-
-    function onSetNewMessage(e:ChangeEvent<HTMLInputElement>) {
-        setNewMessage(e.target.value);
-    }
-
-    function onCheckConsent(e:ChangeEvent<HTMLInputElement>) {
-        setConsent(e.target.checked);
+    const {register, handleSubmit: formSubmit, reset, formState: {errors}} = useForm<IMyForm>()
+    const submit: SubmitHandler<IMyForm> = (data) => {
+        handleSubmit(data)
+        reset()
     }
 
     return (
-        <form className={styles.validation} onSubmit={handleSubmit}>
+        <form className={styles.validation} onSubmit={formSubmit(submit)}>
             <div className={styles.validation__indentation}>
                 <img className={styles.validation__image} src={circleIcon} alt="circleIcon"/>
                 <h1>Расскажите <br/> о вашем проекте</h1>
@@ -62,59 +28,69 @@ const ValidationForm: FC<IProps> = (props) => {
                     <input
                         className={styles.validation__input}
                         type="text"
-                        required
-                        pattern="[A-Za-zА-Яа-яЁё\s]+"
-                        title="Имя должно содержать только буквы."
-                        value={newName}
-                        onChange={onSetNewName}
+                        {...register("name", {
+                            required: "Введите имя",
+                            pattern: {
+                                value: /^[a-zA-Zа-яА-Я]+$/,
+                                message: "Имя должно содержать только буквы"
+                            }
+                        })}
                     />
                     <label className={styles.validation__label}>Ваше имя*</label>
+                    {errors.name && <p style={{color: "red"}}>{errors.name.message}</p>}
                 </div>
                 <div className={styles.validation__form}>
                     <input
                         className={styles.validation__input}
                         type="email"
-                        required
-                        value={newEmail}
-                        onChange={onSetNewEmail}
+                        {...register("email", {
+                            required: "Введите email",
+                            pattern: {
+                                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                                message: "Неверный формат email"
+                            }
+                        })}
                     />
                     <label className={styles.validation__label}>Email*</label>
+                    {errors.email && <p style={{color: "red"}}>{errors.email.message}</p>}
                 </div>
                 <div className={styles.validation__form}>
                     <input
                         className={styles.validation__input}
                         type="tel"
-                        required
-                        pattern="7\d{10}"
-                        title="Введите номер в формате: 7xxxxxxxxxx"
-                        value={newPhone}
-                        onChange={onSetNewPhone}
+                        {...register('phone', {
+                            required: "Введите номер телефона",
+                            pattern: {
+                                value: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
+                                message: "Неверный формат номера телефона"
+                            }
+                        })}
                     />
                     <label className={styles.validation__label}>Телефон*</label>
+                    {errors.phone && <p style={{color: "red"}}>{errors.phone.message}</p>}
                 </div>
             </div>
             <div className={styles.validation__form}>
                 <input
                     className={`${styles.validation__input} ${styles.validation__input_message}`}
-                    required
-                    value={newMessage}
-                    onChange={onSetNewMessage}
+                    {...register('message', {required: "Введите сообщение"})}
                 />
                 <label className={styles.validation__label}>Сообщение*</label>
+                {errors.message && <p style={{color: "red"}}>{errors.message.message}</p>}
             </div>
             <div className={styles.validation__content}>
                 <input
                     type="checkbox"
                     className={styles.validation__checkbox}
                     id="consentCheckbox"
-                    checked={consent}
-                    onChange={onCheckConsent}
+                    {...register('consent', {required: "Дайте согласие на обработку персональных данных"})}
                 />
                 <label htmlFor="consentCheckbox" className={styles['validation__checkbox--custom']}></label>
                 <label>Согласие на обработку персональных данных</label>
+                {errors.consent && <p style={{color: "red"}}>{errors.consent.message}</p>}
             </div>
             <div className={styles.validation__button}>
-                <button type="submit" className={styles['validation__button--container']}>Обсудить проект</button>
+                <button className={styles['validation__button--container']}>Обсудить проект</button>
             </div>
         </form>
     );

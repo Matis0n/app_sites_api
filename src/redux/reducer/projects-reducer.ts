@@ -27,7 +27,6 @@ const projectsReducer = (state = initialState, action: ActionsTypes): InitialSta
                 ...state,
                 projects: action.payload
             }
-
         default:
             return state
     }
@@ -39,7 +38,7 @@ export const setProjectsActionCreator = (project: IProjects[]): ProjectsActionCr
 
 
 export const getProjectsData = () =>
-    async (dispatch:AppDispatch) => {
+    async (dispatch: AppDispatch) => {
         try {
             const response = await testAPI.getProjects()
             let project = response.data.items
@@ -47,7 +46,6 @@ export const getProjectsData = () =>
         } catch (error) {
             console.log('error', error)
         }
-
     }
 
 export default projectsReducer
