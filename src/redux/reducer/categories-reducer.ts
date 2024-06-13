@@ -24,7 +24,7 @@ const projectsReducer = (state = initialState, action: ActionsTypes): InitialSta
         case SET_CATEGORIES:
             return {
                 ...state,
-                categories: [...state.categories,...action.payload]
+                categories: action.payload
             }
         default:
             return state

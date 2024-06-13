@@ -25,3 +25,10 @@ export interface IUsersForm {
     message: string | null
 }
 
+export interface IMyForm {
+    name: string
+    phone: string
+    email: string
+    message: string
+    consent: boolean
+}
