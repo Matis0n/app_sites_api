@@ -39,6 +39,7 @@ export const setProjectsActionCreator = (project: IProjects[]): ProjectsActionCr
 
 export const getProjectsData = () =>
     async (dispatch: AppDispatch) => {
+
         try {
             const response = await testAPI.getProjects()
             let project = response.data.items
