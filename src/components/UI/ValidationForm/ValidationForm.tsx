@@ -37,7 +37,7 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                         })}
                     />
                     <label className={styles.validation__label}>Ваше имя*</label>
-                    {errors.name && <p style={{color: "red"}}>{errors.name.message}</p>}
+                    {errors.name && <p className={styles.validation__paragraph}>{errors.name.message}</p>}
                 </div>
                 <div className={styles.validation__form}>
                     <input
@@ -52,7 +52,7 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                         })}
                     />
                     <label className={styles.validation__label}>Email*</label>
-                    {errors.email && <p style={{color: "red"}}>{errors.email.message}</p>}
+                    {errors.email && <p className={styles.validation__paragraph}>{errors.email.message}</p>}
                 </div>
                 <div className={styles.validation__form}>
                     <input
@@ -67,7 +67,7 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                         })}
                     />
                     <label className={styles.validation__label}>Телефон*</label>
-                    {errors.phone && <p style={{color: "red"}}>{errors.phone.message}</p>}
+                    {errors.phone && <p className={styles.validation__paragraph}>{errors.phone.message}</p>}
                 </div>
             </div>
             <div className={styles.validation__form}>
@@ -76,7 +76,7 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                     {...register('message', {required: "Введите сообщение"})}
                 />
                 <label className={styles.validation__label}>Сообщение*</label>
-                {errors.message && <p style={{color: "red"}}>{errors.message.message}</p>}
+                {errors.message && <p className={styles.validation__paragraph}>{errors.message.message}</p>}
             </div>
             <div className={styles.validation__content}>
                 <input
@@ -87,7 +87,7 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                 />
                 <label htmlFor="consentCheckbox" className={styles['validation__checkbox--custom']}></label>
                 <label>Согласие на обработку персональных данных</label>
-                {errors.consent && <p style={{color: "red"}}>{errors.consent.message}</p>}
+                {errors.consent && <p className={styles.validation__paragraph}>{errors.consent.message}</p>}
             </div>
             <div className={styles.validation__button}>
                 <button className={styles['validation__button--container']}>Обсудить проект</button>
