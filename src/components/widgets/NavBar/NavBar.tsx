@@ -1,10 +1,15 @@
-import React from 'react';
 import styles from "./NavBar.module.scss";
 import closeIcon from '../../chared/img/close.svg';
+import {FC} from "react";
 
 const category = ["Агентство", "Услуги", "Кейсы", "Блог", "Контакты"];
 
-const NavBar = ({isOpenMenu, toggleMenu}) => {
+interface IProps {
+    isOpenMenu: boolean
+    toggleMenu: () => void
+}
+
+const NavBar: FC<IProps> = ({isOpenMenu, toggleMenu}) => {
     return (
         <nav className={styles.nav}>
             <div className={`${styles.nav__menu} ${isOpenMenu ? styles['nav__menu--show'] : ''}`}>
