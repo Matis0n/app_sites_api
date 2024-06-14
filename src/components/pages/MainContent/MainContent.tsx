@@ -1,8 +1,8 @@
 import styles from './MainContent.module.scss'
 import {Container} from "reactstrap";
-import CategoryProjectContainer from "../UI/CategoryProject/CategoryProjectContainer.tsx";
-import CompletedProjectsContainer from "../UI/СompletedProjects/СompletedProjectsContainer.tsx";
-import ValidationFormContainer from "../UI/ValidationForm/ValidationFormContainer.tsx";
+import CategoryProjectContainer from "../../entities/CategoryProject/CategoryProjectContainer.tsx";
+import CompletedProjectsContainer from "../../entities/СompletedProjects/СompletedProjectsContainer.tsx";
+import ValidationFormContainer from "../../entities/ValidationForm/ValidationFormContainer.tsx";
 
 
 const MainContent = () => {

@@ -1,7 +1,7 @@
 import  {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, getProjectsCategoriesData} from "../../../redux/reducer/categories-reducer.ts";
-import CategoryProject from "./CategoryProject.js";
+import CategoryProject from "./CategoryProject.tsx";
 import {RootState} from "../../../redux/store.ts";
 import {ICategories} from "../../../types/type.ts";
 

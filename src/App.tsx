@@ -1,7 +1,7 @@
-import Header from "./components/Header/Header";
-import ToolsNavigate from "./components/UI/ToolsNavigate/ToolsNavigate";
-import MainContent from "./components/MainContent/MainContent";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/widgets/Header/Header";
+import ToolsNavigate from "./components/entities/ToolsNavigate/ToolsNavigate";
+import MainContent from "./components/pages/MainContent/MainContent.tsx";
+import Footer from "./components/widgets/Footer/Footer";
 
 function App() {
     return (

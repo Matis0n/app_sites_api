@@ -1,6 +1,6 @@
 import styles from "./СompletedProjects.module.scss"
-import TisksIcon from "../../../assets/IconComponent/TisksIcon";
-import TisksIconMobile from "../../../assets/IconComponent/TisksIconMobile";
+import TisksIcon from "../../chared/IconComponent/TisksIcon.tsx";
+import TisksIconMobile from "../../chared/IconComponent/TisksIconMobile.tsx";
 import {Row, Col} from "reactstrap";
 import {IProjects} from "../../../types/type.ts";
 import {FC} from "react";
