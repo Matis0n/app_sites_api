@@ -1,5 +1,5 @@
 import Header from "./components/widgets/Header/Header";
-import ToolsNavigate from "./components/entities/ToolsNavigate/ToolsNavigate";
+import ToolsNavigate from "./components/pages/ToolsNavigate/ToolsNavigate";
 import MainContent from "./components/pages/MainContent/MainContent.tsx";
 import Footer from "./components/widgets/Footer/Footer";
 
