@@ -3,7 +3,6 @@ import ValidationForm from "./ValidationForm.tsx";
 import {AppDispatch, setFormData} from "../../../redux/reducer/forms-reducer.ts";
 import {IMyForm} from "../../../types/type.ts";
 
-
 const ValidationFormContainer = () => {
 
     const dispatch = useDispatch<AppDispatch>();

@@ -54,7 +54,9 @@
     font-size: 18px;
 
   }
-
+  &__paragraph{
+    color:$color-red
+  }
   &__content {
     margin-top: 40px;
     display: flex;
