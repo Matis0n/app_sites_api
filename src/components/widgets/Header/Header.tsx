@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import logo from "../../assets/img/logo.svg";
+import logo from "../../chared/img/logo.svg";
 import styles from "./Header.module.scss";
 import {Container} from "reactstrap";
-import burgerIcon from './../../assets/img/burger.svg';
+import burgerIcon from '../../chared/img/burger.svg';
 import NavBar from "../NavBar/NavBar.tsx";
 
 const Header = () => {

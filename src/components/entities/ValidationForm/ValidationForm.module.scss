@@ -1,4 +1,4 @@
-@import './../../../assets/colors/colors';
+@import "../../../assets/colors/colors";
 
 .validation {
   width: 100%;
@@ -54,6 +54,10 @@
     font-size: 18px;
 
   }
+  &__button{
+    margin-top: 67px;
+    margin-bottom: 124px;
+  }
   &__paragraph{
     color:$color-red
   }
@@ -105,25 +109,6 @@
       &:after {
         display: block;
       }
-    }
-  }
-
-  &__button {
-    display: flex;
-    justify-content: center;
-    margin-top: 67px;
-    margin-bottom: 124px;
-
-    &--container {
-      border: none;
-      cursor: pointer;
-      width: 260px;
-      height: 62px;
-      background: $color-blue;
-      border-radius: 85px;
-      color: $color-white;
-      font-weight: 400;
-      font-size: 18px;
     }
   }
 

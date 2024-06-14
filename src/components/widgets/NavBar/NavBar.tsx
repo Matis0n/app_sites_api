@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./NavBar.module.scss";
-import closeIcon from './../../assets/img/close.svg';
+import closeIcon from '../../chared/img/close.svg';
 
 const category = ["Агентство", "Услуги", "Кейсы", "Блог", "Контакты"];
 

@@ -1,8 +1,9 @@
 import styles from './ValidationForm.module.scss';
-import circleIcon from './../../../assets/img/circle.svg';
+import circleIcon from '../../chared/img/circle.svg';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {FC} from "react";
 import {IMyForm} from "../../../types/type.ts";
+import ButtonElement from "../../chared/ButtonElement/ButtonElement.tsx";
 
 
 interface IProps {
@@ -90,7 +91,7 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                 {errors.consent && <p className={styles.validation__paragraph}>{errors.consent.message}</p>}
             </div>
             <div className={styles.validation__button}>
-                <button className={styles['validation__button--container']}>Обсудить проект</button>
+                <ButtonElement title={"Обсудить проект"}/>
             </div>
         </form>
     );

@@ -1,5 +1,5 @@
 import styles from "./Footer.module.scss";
-import logo from './../../assets/img/logo.svg';
+import logo from '../../chared/img/logo.svg';
 import {Col, Container, Row} from "reactstrap";
 
 const contactList = ['+7 999 123 45 67', 'hello@cyberia.studio', 'ул.Ярных, д.35, оф.10'];
