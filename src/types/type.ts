@@ -30,5 +30,9 @@ export interface IMyForm {
     phone: string
     email: string
     message: string
-    consent: boolean
+    consent?: string
+}
+
+export interface ITitle {
+    title: string
 }

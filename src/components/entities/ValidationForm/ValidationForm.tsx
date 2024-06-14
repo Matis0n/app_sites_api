@@ -4,6 +4,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {FC} from "react";
 import {IMyForm} from "../../../types/type.ts";
 import ButtonElement from "../../chared/ButtonElement/ButtonElement.tsx";
+import СheckboxElement from "../../chared/СheckboxElement/СheckboxElement.tsx";
 
 
 interface IProps {
@@ -80,15 +81,12 @@ const ValidationForm: FC<IProps> = ({handleSubmit}) => {
                 {errors.message && <p className={styles.validation__paragraph}>{errors.message.message}</p>}
             </div>
             <div className={styles.validation__content}>
-                <input
-                    type="checkbox"
-                    className={styles.validation__checkbox}
-                    id="consentCheckbox"
-                    {...register('consent', {required: "Дайте согласие на обработку персональных данных"})}
+                <СheckboxElement
+                    title={"Согласие на обработку персональных данных"}
+                    register={register}
+                    consent={"consent"}
+                    errors={errors.consent}
                 />
-                <label htmlFor="consentCheckbox" className={styles['validation__checkbox--custom']}></label>
-                <label>Согласие на обработку персональных данных</label>
-                {errors.consent && <p className={styles.validation__paragraph}>{errors.consent.message}</p>}
             </div>
             <div className={styles.validation__button}>
                 <ButtonElement title={"Обсудить проект"}/>
