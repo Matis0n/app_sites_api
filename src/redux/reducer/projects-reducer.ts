@@ -1,12 +1,12 @@
 import {testAPI} from "../../api/api.ts";
-import {IProjects} from "../../types/type.ts";
+import {ProjectsType} from "../../types/type.ts";
 import {ThunkDispatch} from "redux-thunk";
 import {RootState} from "../store.ts";
 
 const SET_PROJECTS = 'SET-PROJECTS';
 
 let initialState = {
-    projects: [] as IProjects[],
+    projects: [] as ProjectsType[],
 
 };
 
@@ -15,7 +15,7 @@ type ActionsTypes = ProjectsActionCreatorType
 
 export type ProjectsActionCreatorType = {
     type: typeof SET_PROJECTS
-    payload: IProjects[]
+    payload: ProjectsType[]
 }
 export type  AppDispatch = ThunkDispatch<RootState, unknown, ActionsTypes>
 
@@ -33,17 +33,15 @@ const projectsReducer = (state = initialState, action: ActionsTypes): InitialSta
 }
 
 
-export const setProjectsActionCreator = (project: IProjects[]): ProjectsActionCreatorType =>
+export const setProjectsActionCreator = (project: ProjectsType[]): ProjectsActionCreatorType =>
     ({type: SET_PROJECTS, payload: project})
 
 
 export const getProjectsData = () =>
     async (dispatch: AppDispatch) => {
-
         try {
-            const response = await testAPI.getProjects()
-            let project = response.data.items
-            dispatch(setProjectsActionCreator(project as []))
+            const project = await testAPI.getProjects()
+            dispatch(setProjectsActionCreator(project))
         } catch (error) {
             console.log('error', error)
         }

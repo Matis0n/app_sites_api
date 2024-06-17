@@ -2,11 +2,11 @@ import styles from "./СompletedProjects.module.scss"
 import TisksIcon from "../../chared/IconComponent/TisksIcon.tsx";
 import TisksIconMobile from "../../chared/IconComponent/TisksIconMobile.tsx";
 import {Row, Col} from "reactstrap";
-import {IProjects} from "../../../types/type.ts";
+import {ProjectsType} from "../../../types/type.ts";
 import {FC} from "react";
 
-interface IProps {
-    projects: IProjects[]
+type IProps = {
+    projects: ProjectsType[]
 }
 
 const CompletedProjects: FC<IProps> = ({projects}) => {

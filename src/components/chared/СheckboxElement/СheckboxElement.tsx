@@ -1,10 +1,11 @@
 import styles from "./СheckboxElement.module.scss";
 import {FC} from "react";
-import {IMyForm, ITitle} from "../../../types/type.ts";
+import {IMyForm} from "../../../types/type.ts";
 import {FieldError, UseFormRegister} from "react-hook-form";
 
 
-interface IProps extends ITitle {
+interface IProps {
+    title:string
     register: UseFormRegister<IMyForm>;
     consent: "consent";
     errors?: FieldError;
