@@ -36,15 +36,16 @@ const formReducer = (state = initialState, action: ActionsTypes): InitialStateTy
 };
 
 
-export const setFormDataActionCreator = (name: string, phone: string, email: string, message: string): FormDataActionCreatorType => ({
+export const setFormDataActionCreator = ({name, phone, email, message}:IUsersForm): FormDataActionCreatorType => ({
     type: SET_FORM_DATA,
     payload: {name, phone, email, message},
 });
-export const setFormData = (name: string, phone: string, email: string, message: string) =>
+
+export const setFormData = ({name, phone, email, message}:IUsersForm) =>
     async (dispatch: AppDispatch) => {
         try {
-            await testAPI.submitData(name, phone, email, message);
-            dispatch(setFormDataActionCreator(name, phone, email, message));
+            await testAPI.submitData({name, phone, email, message});
+            dispatch(setFormDataActionCreator({name, phone, email, message}));
         } catch (error) {
             console.error('Ошибка настройки данных формы:', error)
         }
