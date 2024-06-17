@@ -4,12 +4,12 @@ import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {AppDispatch, getProjectsData} from "../../../redux/reducer/projects-reducer.ts";
 import {RootState} from "../../../redux/store.ts";
-import {IProjects} from "../../../types/type.ts";
+import {ProjectsType} from "../../../types/type.ts";
 
 const CompletedProjectsContainer=()=>{
 
     const dispatch = useDispatch<AppDispatch>()
-    const projects = useSelector<RootState,Array<IProjects>>(state => state.projectsPage.projects)
+    const projects = useSelector<RootState,Array<ProjectsType>>(state => state.projectsPage.projects)
 
     useEffect(() => {
         dispatch(getProjectsData())

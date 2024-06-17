@@ -3,13 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, getProjectsCategoriesData} from "../../../redux/reducer/categories-reducer.ts";
 import CategoryProject from "./CategoryProject.tsx";
 import {RootState} from "../../../redux/store.ts";
-import {ICategories} from "../../../types/type.ts";
+import {CategoriesType} from "../../../types/type.ts";
 
 
 const CategoryProjectContainer = () => {
     const dispatch = useDispatch<AppDispatch>();
 
-    const categories = useSelector<RootState,ICategories[]>(state => state.categoriesPage.categories);
+    const categories = useSelector<RootState,CategoriesType[]>(state => state.categoriesPage.categories);
     useEffect(() => {
         dispatch(getProjectsCategoriesData());
     }, [dispatch]);

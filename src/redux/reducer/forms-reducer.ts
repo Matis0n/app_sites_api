@@ -6,7 +6,7 @@ import {RootState} from "../store.ts";
 
 const SET_FORM_DATA = 'SET-FORM-DATA';
 
-let initialState = {
+let initialState:IUsersForm = {
     name: null as string | null,
     phone: null as string | null,
     email: null as string | null,

@@ -1,21 +1,21 @@
-type itemCategoriesType = {
+export type CategoriesType = {
     id: number
     name: string
 }
 
-export interface ICategories extends itemCategoriesType {
-    items: itemCategoriesType[]
+export interface ICategoriesItems {
+    items: CategoriesType[]
 }
 
-type itemsProjectsType = {
+export type ProjectsType = {
     id: number
     title: string
     slug?: string
     image: string
 }
 
-export interface IProjects extends itemsProjectsType{
-    items: itemsProjectsType[]
+export interface IProjectsItems{
+    items: ProjectsType[]
 }
 
 export interface IUsersForm {
@@ -31,8 +31,4 @@ export interface IMyForm {
     email: string
     message: string
     consent?: string
-}
-
-export interface ITitle {
-    title: string
 }
