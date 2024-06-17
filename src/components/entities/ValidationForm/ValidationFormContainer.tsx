@@ -8,7 +8,7 @@ const ValidationFormContainer = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleSubmit = (data: IMyForm) => {
-        dispatch(setFormData(data.name, data.phone, data.email, data.message))
+        dispatch(setFormData({name: data.name, phone: data.phone, email: data.email, message: data.message}))
     }
 
     return (
